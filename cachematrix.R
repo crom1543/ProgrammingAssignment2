@@ -1,22 +1,17 @@
-## This code is the Programming Assignment 2 
-# for R Programming course in Coursera.org
+## This code is the Programming Assignment 2 for R Programming course in Coursera.org
 
-# Matrix inversion is usually a costly computation and 
-# there may be some benefit to caching the inverse of a matrix 
-# rather than compute it repeatedly.
-# This assignment is to write a pair of functions 
-# that cache the inverse of a matrix.
+# Matrix inversion is usually a costly computation and there may be some benefit 
+# to caching the inverse of a matrix rather than compute it repeatedly.
+# This assignment is to write a pair of functions that cache the inverse of a matrix.
 
-# I assume that the matrix supplied is always invertible 
-# in accordance with the assignment instruction.
+# I assume that the matrix supplied is always invertible in accordance with the assignment instruction.
 
-## makeCacheMatrix() function creates a special "matrix" object 
-# that can cache its inverse.
+## makeCacheMatrix() function creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = makeCacheMatrixtrix()) {
     cachedInv <- NULL                       # Initialize cache variable
     set <- function(y) {                    # Set the value of the matrix
-        x <<- y                             #
-        cachedInv <<- NULL                  #
+        x <<- y                             
+        cachedInv <<- NULL                  
     }
     get <- function() x                     # Get the value of the matrix
     setInverse <- function(inv) cachedInv <<- inv # Set the inverse of the matrix
@@ -26,8 +21,7 @@ makeCacheMatrix <- function(x = makeCacheMatrixtrix()) {
          getInverse = getInverse)
 }
 
-## cacheSolve() function computes the inverse of the special "matrix" 
-# returned by makeCacheMatrix above
+## cacheSolve() function computes the inverse of the special "matrix" returned by makeCacheMatrix above
 cacheSolve <- function(x, ...) {
     localInv <- x$getInverse()              # Put cachedInv of 'x' object to local variable 
     if(!is.null(localInv)) {                # Check that the inverse of the matrix is already cached
